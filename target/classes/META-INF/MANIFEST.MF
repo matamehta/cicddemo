@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: demoapplication
+Implementation-Version: 1.0
+Built-By: rsaluja
+Implementation-Vendor-Id: com.karsun
+Build-Jdk: 1.8.0_121
+Implementation-URL: http://projects.spring.io/spring-boot/demoapplicat
+ ion/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Karsun Solutions LLC
+
