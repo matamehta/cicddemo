@@ -11,7 +11,7 @@ Changes to be done to be able to deploy this app in your AWS environment
 2. Import the jenkins job from the resources/jenkins folder
 3. Setup the credentials for docker hub in the maven repository by using the server tag inside the settings.xml file. 
 Add the following server configurations
-<servers>
+"<servers>
   <server>
     <id>docker-hub</id>
     <username>REPLACE_USER_NAME</username>
@@ -20,13 +20,13 @@ Add the following server configurations
       <email>REPLACE_EMAIL</email>
     </configuration>
   </server>
-</servers>
+</servers>"
 
 4. Add the serverID attribute in pom.xml within the configuration section inside <artifactId>docker-maven-plugin</artifactId>
-  <configuration>
+  "<configuration>
       [...]
       <serverId>docker-hub</serverId>
-    </configuration>
+    </configuration>"
 
 5.  You can also setup the docker-hub credentials by logging in to the docker hub from the EC2 instance that is running the Jenkins 
 server. 
