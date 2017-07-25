@@ -92,6 +92,19 @@
 		</plugins>
 	</build>
 
+<distributionManagement>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>artifactory.golean.io-snapshots</name>
+			<url>https://artifactory.golean.io/artifactory/libs-snapshot-local</url>
+		</snapshotRepository>
+		<repository>
+			<id>releases</id>
+			<name>artifactory.golean.io-releases</name>
+			<url>https://artifactory.golean.io/artifactory/libs-release-local</url>
+		</repository>
+	</distributionManagement>
+
 	<version>1.0.0-SNAPSHOT</version>
 	<organization>
 		<name>Karsun Solutions LLC</name>
