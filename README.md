@@ -4,7 +4,7 @@ CI CD demo using Spring boot and Docker deployment
 The CI CD demo project provides a springboot sample Java Application. The CI & CD process is managed via Jenkins and AWS CLI. The 
 Jenkins task gets executed whenever there is a change in the github repository. Once the compilation and execution of tests are successful, the Jenkins job initiates the SonarQube check to ensure no high priority issues are introduced in this branch. The github also ensures that push requests are peer-reviewed before the final check-in is complete.
 
-# How is the deployment working 
+# How does the project configurations work ?
 1. There are 3 Jenkins job inside the resources/jenkins folder. 
 2. The github webhook calls the jenkins job that initiates a pull request process initiation 
 3. The jenkins job runs a SonarQube code quality check to ensure that the new code commited does not have any high priority issues
