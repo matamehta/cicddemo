@@ -1,126 +1,7 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Metadata": {
-    "AWS::CloudFormation::Designer": {
-      "5b96c464-b881-4be3-ad59-2a3a3c7c1e2c": {
-        "size": {
-          "width": 60,
-          "height": 60
-        },
-        "position": {
-          "x": 390,
-          "y": 110
-        },
-        "z": 0,
-        "embeds": [],
-        "dependson": [
-          "99b4b14d-4a26-4fdb-a197-6c401a22276f"
-        ]
-      },
-      "02ffb4f8-2877-4957-b31f-01b745d67f57": {
-        "size": {
-          "width": 60,
-          "height": 60
-        },
-        "position": {
-          "x": 80,
-          "y": 110
-        },
-        "z": 0,
-        "embeds": []
-      },
-      "99b4b14d-4a26-4fdb-a197-6c401a22276f": {
-        "size": {
-          "width": 60,
-          "height": 60
-        },
-        "position": {
-          "x": 80,
-          "y": 230
-        },
-        "z": 0,
-        "embeds": [],
-        "dependson": [
-          "02ffb4f8-2877-4957-b31f-01b745d67f57"
-        ],
-        "isrelatedto": [
-          "02ffb4f8-2877-4957-b31f-01b745d67f57"
-        ]
-      },
-      "e2b41f98-049b-4a90-bd36-91dd9f0cec43": {
-        "source": {
-          "id": "99b4b14d-4a26-4fdb-a197-6c401a22276f"
-        },
-        "target": {
-          "id": "02ffb4f8-2877-4957-b31f-01b745d67f57"
-        },
-        "z": 1
-      },
-      "d0482889-4c4a-4ddc-997a-0a8003b14d95": {
-        "source": {
-          "id": "5b96c464-b881-4be3-ad59-2a3a3c7c1e2c"
-        },
-        "target": {
-          "id": "99b4b14d-4a26-4fdb-a197-6c401a22276f"
-        },
-        "z": 2
-      },
-      "99a7fce4-bd08-415a-adb8-943e4bea9603": {
-        "size": {
-          "width": 60,
-          "height": 60
-        },
-        "position": {
-          "x": 283.53510295379226,
-          "y": 232.38422954818273
-        },
-        "z": 0,
-        "embeds": [],
-        "references": [
-          "5b96c464-b881-4be3-ad59-2a3a3c7c1e2c"
-        ],
-        "isrelatedto": [
-          "02ffb4f8-2877-4957-b31f-01b745d67f57"
-        ]
-      },
-      "975dc51d-614f-424d-bf59-bfce19112d8c": {
-        "source": {
-          "id": "99a7fce4-bd08-415a-adb8-943e4bea9603",
-          "selector": "g:nth-child(1) g:nth-child(4) g:nth-child(5) circle:nth-child(1)     ",
-          "port": "AWS::DependencyLink-*"
-        },
-        "target": {
-          "x": 130,
-          "y": 290
-        },
-        "z": 12
-      },
-      "94d8754e-fa30-42a3-8cca-b9abc3a9def9": {
-        "source": {
-          "id": "99a7fce4-bd08-415a-adb8-943e4bea9603",
-          "selector": "g:nth-child(1) g:nth-child(4) g:nth-child(5) circle:nth-child(1)     ",
-          "port": "AWS::DependencyLink-*"
-        },
-        "target": {
-          "id": "99b4b14d-4a26-4fdb-a197-6c401a22276f"
-        },
-        "z": 12
-      },
-      "ec5d6c85-d020-4013-80ea-3194e96509c7": {
-        "source": {
-          "id": "99a7fce4-bd08-415a-adb8-943e4bea9603",
-          "selector": "g:nth-child(1) g:nth-child(4) g:nth-child(5) circle:nth-child(1)     ",
-          "port": "AWS::DependencyLink-*"
-        },
-        "target": {
-          "id": "99b4b14d-4a26-4fdb-a197-6c401a22276f"
-        },
-        "z": 12
-      }
-    }
-  },
   "Resources": {
-    "DAERECS": {
+    "CICCD": {
       "Type": "AWS::ECS::TaskDefinition",
       "Properties": {
         "Family": {
@@ -140,7 +21,7 @@
               }
             ],
             "Image": {
-              "Fn::Sub": "${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/golean/daer-app:1.0"
+              "Fn::Sub": "${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/golean/${CicdVersion}"
             },
             "Cpu": "100",
             "PortMappings": [
@@ -166,204 +47,133 @@
           {
             "Name": "dbContainer",
             "Image": {
-              "Fn::Sub": "${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/golean/daer-db:1.0"
+              "Fn::Sub": "${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/golean/${CicdVersion}"
             },
             "Cpu": "100",
             "MemoryReservation": "1024",
             "Essential": "true"
           }
-        ],
-        "Volumes": [
-          {
-            "Host": {
-              "SourcePath": {
-                "Fn::Sub": "/tenants/${TenantKey}/application/${ApplicationContextPath}/app"
-              }
-            },
-            "Name": "appjar"
+        ]
+      },
+      "EnvironmentTargetGroup": {
+        "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+        "Properties": {
+          "HealthCheckIntervalSeconds": 30,
+          "HealthCheckPort": "traffic-port",
+          "HealthCheckProtocol": "HTTP",
+          "HealthCheckTimeoutSeconds": 5,
+          "HealthyThresholdCount": 2,
+          "UnhealthyThresholdCount": 10,
+          "HealthCheckPath": {
+            "Fn::Sub": "/${ApplicationContextPath}/"
           },
-          {
-            "Host": {
-              "SourcePath": {
-                "Fn::Sub": "/tenants/${TenantKey}/application/${ApplicationContextPath}/logs"
-              }
-            },
-            "Name": "applogs"
-          }
-        ]
-      },
-      "Metadata": {
-        "AWS::CloudFormation::Designer": {
-          "id": "5b96c464-b881-4be3-ad59-2a3a3c7c1e2c"
-        }
-      }
-    },
-    "EnvironmentTargetGroup": {
-      "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
-      "Properties": {
-        "HealthCheckIntervalSeconds": 30,
-        "HealthCheckPort": "traffic-port",
-        "HealthCheckProtocol": "HTTP",
-        "HealthCheckTimeoutSeconds": 5,
-        "HealthyThresholdCount": 2,
-        "UnhealthyThresholdCount": 10,
-        "HealthCheckPath": {
-          "Fn::Sub": "/${ApplicationContextPath}/healthcheck"
-        },
-        "Matcher": {
-          "HttpCode": 200
-        },
-        "TargetGroupAttributes": [
-          {
-            "Key": "deregistration_delay.timeout_seconds",
-            "Value": 300
-          }
-        ],
-        "Tags": [
-          {
-            "Key": "tenant-resource",
-            "Value": {
-              "Ref": "TenantKey"
+          "Matcher": {
+            "HttpCode": 200
+          },
+          "TargetGroupAttributes": [
+            {
+              "Key": "deregistration_delay.timeout_seconds",
+              "Value": 300
             }
-          }
-        ],
-        "VpcId": {
-          "Ref": "VPCId"
-        },
-        "Protocol": "HTTP",
-        "Port": 80
-      },
-      "Metadata": {
-        "AWS::CloudFormation::Designer": {
-          "id": "02ffb4f8-2877-4957-b31f-01b745d67f57"
-        }
-      }
-    },
-    "AppListenerRule": {
-      "Type": "AWS::ElasticLoadBalancingV2::ListenerRule",
-      "Properties": {
-        "Actions": [
-          {
-            "TargetGroupArn": {
-              "Ref": "EnvironmentTargetGroup"
-            },
-            "Type": "forward"
-          }
-        ],
-        "Conditions": [
-          {
-            "Field": "path-pattern",
-            "Values": [
-              {
-                "Fn::Sub": "/${ApplicationContextPath}/*"
-              }
-            ]
-          }
-        ],
-        "ListenerArn": {
-          "Ref": "ListenerARN"
-        },
-        "Priority": {
-          "Ref": "TargetGroupPriority"
+          ],
+          "VpcId": {
+            "Ref": "VpcId"
+          },
+          "Protocol": "HTTP",
+          "Port": 80
         }
       },
-      "Metadata": {
-        "AWS::CloudFormation::Designer": {
-          "id": "99b4b14d-4a26-4fdb-a197-6c401a22276f"
-        }
-      }
-    },
-    "ApplicationService": {
-      "Type": "AWS::ECS::Service",
-      "Properties": {
-        "Cluster": {
-          "Ref": "ECSClusterName"
-        },
-        "Role": {
-          "Ref": "ECSServiceRole"
-        },
-        "DesiredCount": {
-          "Ref": "TaskDesiredCount"
-        },
-        "TaskDefinition": {
-          "Ref": "DAERECS"
-        },
-        "LoadBalancers": [
-          {
-            "ContainerName": "applicationContainer",
-            "ContainerPort": 8087,
-            "TargetGroupArn": {
-              "Ref": "EnvironmentTargetGroup"
+      "AppListenerRule": {
+        "Type": "AWS::ElasticLoadBalancingV2::ListenerRule",
+        "Properties": {
+          "Actions": [
+            {
+              "TargetGroupArn": {
+                "Ref": "EnvironmentTargetGroup"
+              },
+              "Type": "forward"
             }
+          ],
+          "Conditions": [
+            {
+              "Field": "path-pattern",
+              "Values": [
+                {
+                  "Fn::Sub": "/${ApplicationContextPath}/*"
+                }
+              ]
+            }
+          ],
+          "ListenerArn": {
+            "Ref": "ListenerARN"
+          },
+          "Priority": {
+            "Ref": "TargetGroupPriority"
           }
-        ]
-      },
-      "Metadata": {
-        "AWS::CloudFormation::Designer": {
-          "id": "99a7fce4-bd08-415a-adb8-943e4bea9603"
         }
       },
-      "DependsOn": "AppListenerRule"
-
-    }
-  },
-  "Parameters": {
-    "TaskDefinitionName": {
-      "Description": "Task defenition name to identify",
-      "Type": "String",
-      "MinLength": "1",
-      "MaxLength": "25",
-      "AllowedPattern": "[-_ a-zA-Z0-9]*"
+      "ApplicationService": {
+        "Type": "AWS::ECS::Service",
+        "Properties": {
+          "Cluster": {
+            "Ref": "ECSClusterName"
+          },
+          "Role": {
+            "Ref": "ECSServiceRole"
+          },
+          "DesiredCount": {
+            "Ref": "TaskDesiredCount"
+          },
+          "TaskDefinition": {
+            "Ref": "CICCD"
+          },
+          "LoadBalancers": [
+            {
+              "ContainerName": "applicationContainer",
+              "ContainerPort": 8087,
+              "TargetGroupArn": {
+                "Ref": "EnvironmentTargetGroup"
+              }
+            }
+          ]
+        },
+        "DependsOn": "AppListenerRule"
+      }
     },
-    "ApplicationContextPath": {
-      "Description": "Application's Context path",
-      "Type": "String",
-      "MinLength": "1",
-      "MaxLength": "1024",
-      "AllowedPattern": "[-_ a-zA-Z0-9]*"
-    },
-    "VPCId": {
-      "Description": "Target group name",
-      "Type": "String",
-      "MinLength": "1",
-      "MaxLength": "1024"
-    },
-    "ListenerARN": {
-      "Description": "Listeners ARN",
-      "Type": "String",
-      "MinLength": "1",
-      "MaxLength": "2048"
-    },
-    "TargetGroupPriority": {
-      "Description": "Listeners Target group rule priority",
-      "Type": "Number",
-      "MinValue": 1,
-      "MaxValue": 99999
-    },
-    "TenantKey": {
-      "Description": "Tenant Key",
-      "Type": "String",
-      "MinLength": "1",
-      "MaxLength": "15",
-      "AllowedPattern": "[-_ a-zA-Z0-9]*"
-    },
-    "TaskDesiredCount": {
-      "Description": "Task desired count",
-      "Type": "Number",
-      "MinValue": "0",
-      "MaxValue": "1"
-    },
-    "ECSServiceRole": {
-      "Description": "IAM Role name for service to update the target group",
-      "Type": "String",
-      "MinLength": "1",
-      "MaxLength": "50"
-    },
-    "ECSClusterName": {
-      "Description": "Name of the ECS cluster to deploy",
-      "Type": "String",
-      "MinLength": "1",
-      "MaxLength": "50"
+    "Parameters": {
+      "CicdVersion": {
+        "Description": "Cicd Ap Version",
+        "Type": "String",
+        "Default": "ccid-app:1.0"
+      },
+      "VpcId": {
+        "Description": "Target group name",
+        "Type": "AWS::EC2::VPC:Id",
+        "MinLength": "1",
+        "MaxLength": "1024"
+      },
+      "SubnetId":{
+        "Type": "List<AWS::EC2::Subnet::Id>",
+        "Description": "Select subnets in your VPC"
+      },
+      "TaskDesiredCount": {
+        "Description": "Task desired count",
+        "Type": "Number",
+        "MinValue": "0",
+        "MaxValue": "1"
+      },
+      "ECSServiceRole": {
+        "Description": "IAM Role name for service to update the target group",
+        "Type": "String",
+        "MinLength": "1",
+        "MaxLength": "50"
+      },
+      "ECSClusterName": {
+        "Description": "Name of the ECS cluster to deploy",
+        "Type": "String",
+        "MinLength": "1",
+        "MaxLength": "50"
+      }
     }
   }
 }
