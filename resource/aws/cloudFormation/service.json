@@ -309,12 +309,6 @@
       "MaxLength": "1024",
       "AllowedPattern": "[-_ a-zA-Z0-9]*"
     },
-    "TaskDesiredCount": {
-      "Description": "Task desired count",
-      "Type": "Number",
-      "MinValue": "0",
-      "MaxValue": "1"
-    },
     "ECSServiceRole": {
       "Description": "IAM Role name for service to update the target group",
       "Type": "String",
