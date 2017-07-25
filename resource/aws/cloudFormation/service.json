@@ -116,7 +116,10 @@
               }
             ]
           }
-        ]
+        ],
+        "ListenerArn":{
+          "Ref":"AlbListener"
+        }
       }
     },
     "ApplicationService": {
@@ -278,13 +281,55 @@
           }
         ]
       }
+    },
+    "ECSServiceRole":{
+      "Type":"AWS::IAM::Role",
+      "Properties":{
+        "AssumeRolePolicyDocument":{
+          "Statement":[
+            {
+              "Effect":"Allow",
+              "Principal":{
+                "Service":[
+                  "ecs.amazonaws.com"
+                ]
+              },
+              "Action":[
+                "sts:AssumeRole"
+              ]
+            }
+          ]
+        },
+        "Path":"/",
+        "Policies":[
+          {
+            "PolicyName":"ecs-service",
+            "PolicyDocument":{
+              "Statement":[
+                {
+                  "Effect":"Allow",
+                  "Action":[
+                    "elasticloadbalancing:DeregisterInstancesFromLoadBalancer",
+                    "elasticloadbalancing:DeregisterTargets",
+                    "elasticloadbalancing:Describe*",
+                    "elasticloadbalancing:RegisterInstancesWithLoadBalancer",
+                    "elasticloadbalancing:RegisterTargets",
+                    "ec2:Describe*",
+                    "ec2:AuthorizeSecurityGroupIngress"
+                  ],
+                  "Resource":"*"
+                }
+              ]
+            }
+          }
+        ]
+      }
     }
   },
   "Parameters": {
     "EcsAlb": {
       "Description": "ECS ELB",
-      "Type": "String",
-      "Default:": ""
+      "Type": "String"
     },
     "KeyName": {
       "Type": "AWS::EC2::KeyPair::KeyName",
@@ -292,7 +337,8 @@
     },
     "EcsSecurityGroup": {
       "Description": "ECS Security Group",
-      "Type": "List<AWS::EC2::SecurityGroup::Id>"
+      "Type": "String",
+      "Default": "sg-838ab8f2"
     },
     "TaskDefinitionName": {
       "Description": "Task definition name to identify",
@@ -321,12 +367,6 @@
       "MinLength": "1",
       "MaxLength": "1024",
       "AllowedPattern": "[-_ a-zA-Z0-9]*"
-    },
-    "ECSServiceRole": {
-      "Description": "IAM Role name for service to update the target group",
-      "Type": "String",
-      "MinLength": "1",
-      "MaxLength": "50"
     },
     "ECSClusterName": {
       "Description": "Name of the ECS cluster to deploy",
