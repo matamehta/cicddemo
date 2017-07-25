@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.karsun</groupId>
-	<artifactId>demoapplication</artifactId>
+	<artifactId>cicddemo</artifactId>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -34,7 +34,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<docker-repo>ramindersaluja</docker-repo>
-		<docker-project>autodocker</docker-project>
+		<docker-project>cicddemo</docker-project>
 
 	</properties>
 
@@ -84,6 +84,9 @@
 				</executions>
 				<configuration>
 					<repository>${docker-repo}/${docker-project}</repository>
+					<buildArgs>
+					    <jarFileName>${project.build.finalName}</jarFileName>
+				  </buildArgs>
 				</configuration>
 			</plugin>
 		</plugins>
