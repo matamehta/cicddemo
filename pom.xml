@@ -31,23 +31,13 @@
 		</dependency>
 		<!-- end::tests[] -->
 	</dependencies>
-	<repositories>
-		<repository>
-			<id>dockerhub</id>
-			<name>docker Hub Repository</name>
-			<url>https://hub.docker.com/r/ramindersaluja/autodocker/</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
-
 	<properties>
 		<java.version>1.8</java.version>
 		<docker-repo>ramindersaluja</docker-repo>
 		<docker-project>autodocker</docker-project>
 
 	</properties>
+
 
 	<build>
 		<plugins>
