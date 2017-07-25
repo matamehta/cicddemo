@@ -13,16 +13,6 @@
         "ContainerDefinitions": [
           {
             "Name": "applicationContainer",
-            "MountPoints": [
-              {
-                "SourceVolume": "appjar",
-                "ContainerPath": "/opt/application/app"
-              },
-              {
-                "SourceVolume": "applogs",
-                "ContainerPath": "/opt/application/logs"
-              }
-            ],
             "Image": {
               "Fn::Sub": "${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/golean/${CicdVersion}"
             },
@@ -85,6 +75,25 @@
         },
         "Protocol": "HTTP",
         "Port": 80
+      }
+    },
+    "AlbListener":{
+      "Type":"AWS::ElasticLoadBalancingV2::Listener",
+      "DependsOn":"ECSServiceRole",
+      "Properties":{
+        "DefaultActions":[
+          {
+            "Type":"forward",
+            "TargetGroupArn":{
+              "Ref":"EnvironmentTargetGroup"
+            }
+          }
+        ],
+        "LoadBalancerArn":{
+          "Ref":"EcsAlb"
+        },
+        "Port":"80",
+        "Protocol":"HTTP"
       }
     },
     "AppListenerRule": {
@@ -272,16 +281,21 @@
     }
   },
   "Parameters": {
+    "EcsAlb": {
+      "Description": "ECS ELB",
+      "Type": "String",
+      "Default:": ""
+    },
     "KeyName": {
       "Type": "AWS::EC2::KeyPair::KeyName",
       "Description": "Name of an existing EC2 KeyPair to enable SSH access to the ECS instances."
     },
     "EcsSecurityGroup": {
       "Description": "ECS Security Group",
-      "Type": "List<AWS::EC2::SecurityGroup::GroupName>"
+      "Type": "List<AWS::EC2::SecurityGroup::Id>"
     },
     "TaskDefinitionName": {
-      "Description": "Task defenition name to identify",
+      "Description": "Task definition name to identify",
       "Type": "String",
       "MinLength": "1",
       "MaxLength": "25",
@@ -294,9 +308,8 @@
     },
     "VpcId": {
       "Description": "Target group name",
-      "Type": "List<AWS::EC2::VPC::Id>",
-      "MinLength": "1",
-      "MaxLength": "1024"
+      "Type": "String",
+      "Default": "vpc-8271cfe7"
     },
     "SubnetId": {
       "Type": "List<AWS::EC2::Subnet::Id>",
