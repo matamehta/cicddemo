@@ -1,13 +1,20 @@
 # cicddemo
 CI CD demo using Spring boot and Docker deployment
 
-The CI CD demo project provides a springboot sample Java Application. The CI & CD process is managed via Jenkins and AWS CLI. The Jenkins 
-task gets executed whenever there is a change in the github repository. Once the compilation and execution of tests are successful, the 
-Jenkins job initiates the SonarQube check to ensure no high priority issues are introduced in this branch. The github also ensures that
-push requests are peer-reviewed before the final check-in is complete.
+The CI CD demo project provides a springboot sample Java Application. The CI & CD process is managed via Jenkins and AWS CLI. The 
+Jenkins task gets executed whenever there is a change in the github repository. Once the compilation and execution of tests are successful, the Jenkins job initiates the SonarQube check to ensure no high priority issues are introduced in this branch. The github also ensures that push requests are peer-reviewed before the final check-in is complete.
 
-Changes to be done to be able to deploy this app in your AWS environment
-1. Create an EC2 instance server that has the jenkins server installed
+# How is the deployment working 
+1. There are 3 Jenkins job inside the resources/jenkins folder. 
+2. The github webhook calls the jenkins job that initiates a pull request process initiation 
+3. The jenkins job runs a SonarQube code quality check to ensure that the new code commited does not have any high priority issues
+4. A reviewer needs to review the code to ensure pull request can me successfully merged.
+5. The system will NOT allow merging if there are any high priority issues in SonarQube
+6.The Release jenkins job tags the release in github, increments the version number of the package and also updates the cloud formation 
+script that forces a deployment of the docker image on ECS.
+
+# Changes to be done to be able to deploy this app in your AWS environment
+1. Create an EC2 instance server that has the jenkins server installed and having a ROLE that allows ecs cli and ec2 cli commands
 2. Import the jenkins job from the resources/jenkins folder
 3. Setup the credentials for docker hub in the maven repository by using the server tag inside the settings.xml file. 
 Add the following server configurations
