@@ -160,7 +160,7 @@
             ]
           ]
         },
-        "RetentionInDays":14
+        "RetentionInDays":30
       }
     },
     "taskdefinition":{
@@ -173,7 +173,7 @@
               {
                 "Ref":"AWS::StackName"
               },
-              "-ecs-demo-app"
+              "ecs-cicddemo"
             ]
           ]
         },
