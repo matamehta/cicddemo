@@ -27,11 +27,13 @@ Add the following server configurations
       [...]
       <serverId>docker-hub</serverId>
     </configuration>
-5  You can also setup the docker-hub credentials by logging in to the docker hub from the EC2 instance that is running the Jenkins server. 
+
+5.  You can also setup the docker-hub credentials by logging in to the docker hub from the EC2 instance that is running the Jenkins 
+server. 
 You can skip step 3 and 4 if you do this. You can use the command "docker login" to provide the credentials. These credentials will be 
 logged for a period of 12 hours. This may work fine for temporary testing, however for proper CI / CD process, steps 3 and 4 will be 
 necessary. You can encrypt the password using maven configuration tools
-6.
+
 
 
 
