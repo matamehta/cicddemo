@@ -119,9 +119,7 @@
         "Role": {
           "Ref": "ECSServiceRole"
         },
-        "DesiredCount": {
-          "Ref": "TaskDesiredCount"
-        },
+        "DesiredCount": "2",
         "TaskDefinition": {
           "Ref": "CICCD"
         },
@@ -398,6 +396,23 @@
       },
       "ap-southeast-2": {
         "AMIID": "ami-5781be34"
+      }
+    }
+  },
+  "Outputs":{
+    "ecsservice":{
+      "Value":{
+        "Ref":"ApplicationService"
+      }
+    },
+    "ecscluster":{
+      "Value":{
+        "Ref":"ECSCluster"
+      }
+    },
+    "taskdef":{
+      "Value":{
+        "Ref":"CICCD"
       }
     }
   }
