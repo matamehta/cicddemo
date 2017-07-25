@@ -92,7 +92,7 @@
 		</plugins>
 	</build>
 
-	<version>1.0</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<organization>
 		<name>Karsun Solutions LLC</name>
 		<url>www.karsun-llc.com</url>
