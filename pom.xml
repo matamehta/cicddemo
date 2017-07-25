@@ -60,7 +60,7 @@
 			<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>dockerfile-maven-plugin</artifactId>
-				<version>1.3.0</version>
+				<version>1.3.4</version>
 				<executions>
 					<execution>
 						<id>default</id>
@@ -84,6 +84,9 @@
 					</execution>
 				</executions>
 				<configuration>
+				<tasks>
+				<echo> the build file name in maven is ${project.build.finalName}</echo>
+				</tasks>
 					<repository>${docker-repo}/${docker-project}</repository>
 					<buildArgs>
 					    <jarFileName>${project.build.finalName}</jarFileName>
