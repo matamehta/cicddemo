@@ -1,0 +1,11 @@
+commit f60b122fd9be0df608b38be40e82f201f35a3b98
+tree f706660a2043adf65b353e6003ad19475bc5ec5b
+parent 5d3dd43754aefdf993e22ce932c0b2cbffc489a6
+author goleanbot <goleanbot@golean.io> 2017-07-26 02:12:55 +0000
+committer goleanbot <goleanbot@golean.io> 2017-07-26 02:12:55 +0000
+
+    Set new development branch version 1.4.0-SNAPSHOT
+
+
+
+:100644 100644 ae58033389b17ef41466d8869483f77277f10116 fb8850f00dcadfb3bb745049854fde0a7fb12185 M	pom.xml

@@ -1,0 +1,83 @@
+Started by user [8mha:////4OKGIjEr0qF/rzPvDU1OYNdO2pj2gqRDn2ZyZJOcSz8ZAAAAoR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz1EgZR/dLi1CL9osTczLyU1CK94sSc0qxEABA1KVLKAAAA[0mRaminder Singh Saluja (raminder.saluja)
+Building in workspace /var/lib/jenkins/workspace/cicdRFIReleaseMaster
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Done
+Cloning the remote Git repository
+Cloning repository git@github.com:Karsun/cicddemo.git
+ > git init /var/lib/jenkins/workspace/cicdRFIReleaseMaster # timeout=10
+Fetching upstream changes from git@github.com:Karsun/cicddemo.git
+ > git --version # timeout=10
+ > git fetch --tags --progress git@github.com:Karsun/cicddemo.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url git@github.com:Karsun/cicddemo.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url git@github.com:Karsun/cicddemo.git # timeout=10
+Fetching upstream changes from git@github.com:Karsun/cicddemo.git
+ > git fetch --tags --progress git@github.com:Karsun/cicddemo.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision 9ea91a37af7a3dd0c4f1433224a7744863803fce (refs/remotes/origin/master)
+Commit message: "removed the disrtribution option "
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 9ea91a37af7a3dd0c4f1433224a7744863803fce
+ > git rev-list 9ea91a37af7a3dd0c4f1433224a7744863803fce # timeout=10
+[cicdRFIReleaseMaster] $ /bin/bash -ex /tmp/jenkins8785010403911816382.sh
++ set +x
+New development minor version should be 0, minor version is 
+Release branch: 1
+Release version 1.0
+Release tag: tag-release-1.0
+New development: -SNAPSHOT
+New minor version 1
+New release branch 1.1-SNAPSHOT
+Switched to a new branch 'release/1'
+[[1;34mINFO[m] Scanning for projects...
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] Some problems were encountered while building the effective model for com.karsun:cicddemo:jar:1.0
+[[1;33mWARNING[m] 'build.plugins.plugin.version' for com.spotify:dockerfile-maven-plugin is missing. @ line 60, column 12
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] It is highly recommended to fix these problems because they threaten the stability of your build.
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] For this reason, future Maven versions might no longer support building such malformed projects.
+[[1;33mWARNING[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mBuilding cicddemo 1.0[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mversions-maven-plugin:2.2:set[m [1m(default-cli)[m @ [36mcicddemo[0;1m ---[m
+[[1;34mINFO[m] Searching for local aggregator root...
+[[1;34mINFO[m] Local aggregation root: /var/lib/jenkins/workspace/cicdRFIReleaseMaster
+[[1;34mINFO[m] Processing change of com.karsun:cicddemo:1.0 -> 1.0
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time: 2.078 s
+[[1;34mINFO[m] Finished at: 2017-07-25T19:18:58Z
+[[1;34mINFO[m] Final Memory: 23M/225M
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[m[[1;34mINFO[m] Scanning for projects...
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] Some problems were encountered while building the effective model for com.karsun:cicddemo:jar:1.0
+[[1;33mWARNING[m] 'build.plugins.plugin.version' for com.spotify:dockerfile-maven-plugin is missing. @ line 60, column 12
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] It is highly recommended to fix these problems because they threaten the stability of your build.
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] For this reason, future Maven versions might no longer support building such malformed projects.
+[[1;33mWARNING[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mBuilding cicddemo 1.0[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mversions-maven-plugin:2.2:commit[m [1m(default-cli)[m @ [36mcicddemo[0;1m ---[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time: 1.826 s
+[[1;34mINFO[m] Finished at: 2017-07-25T19:19:02Z
+[[1;34mINFO[m] Final Memory: 22M/224M
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+On branch release/1
+nothing to commit, working directory clean
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE

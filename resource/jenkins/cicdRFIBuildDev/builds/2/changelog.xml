@@ -1,0 +1,12 @@
+commit 1745113a6e99e31c6eefa56c5b92ebf6191e47ce
+tree b35cab794c70bcfb668653f75a2408c4aac3397a
+parent f01e966618d7ac40cc405d4fbdcd2aa691113412
+author Raminder Saluja <saluja.raminder@gmail.com> 2017-07-24 18:46:41 -0400
+committer Raminder Saluja <saluja.raminder@gmail.com> 2017-07-24 18:46:41 -0400
+
+    Added the distribution option for testing the deployment. We will need
+    to replace this with something else for final release
+
+
+
+:100644 100644 6f2e60dcade682dac2989b2464cc4ec0f487e558 d180282626b1e3b9e3af0d8a00efa22ee41214e2 M	pom.xml

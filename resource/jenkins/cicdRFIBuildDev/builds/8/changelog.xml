@@ -1,0 +1,11 @@
+commit 9ea91a37af7a3dd0c4f1433224a7744863803fce
+tree d690902d2be7d334448e1e2b1df0c2a288a883be
+parent 0bb91ed245d1c88796bbae30f49fa5c6c34b3936
+author Raminder Saluja <saluja.raminder@gmail.com> 2017-07-25 14:57:27 -0400
+committer Raminder Saluja <saluja.raminder@gmail.com> 2017-07-25 14:57:27 -0400
+
+    removed the disrtribution option
+
+
+
+:100644 100644 7ab7820501d10c5ab4ed678c53fd0e54f907fab8 77b8f70cc4212de4064c6f18755d6f8f4a8f74db M	pom.xml

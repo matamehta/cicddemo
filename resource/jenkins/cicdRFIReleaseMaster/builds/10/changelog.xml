@@ -1,0 +1,12 @@
+commit 541aaf1e3f49d0dccfc3df52bf1ce860366ae071
+tree 26cd18e290fa43ffd1c70463831d1da55537aff4
+parent df0a84d18f2651c2559b43d1c62beb99253f0440
+author Raminder Saluja <saluja.raminder@gmail.com> 2017-07-25 15:57:38 -0400
+committer Raminder Saluja <saluja.raminder@gmail.com> 2017-07-25 15:57:38 -0400
+
+    docker plugin has added capabilities of sending image only in 1.3.4,
+    hence updating the plugin
+
+
+
+:100644 100644 933164276d6358f4cf16762c5f056d4a21bcb741 9b6b99881839034fa3f4807e4e30d531666204d1 M	pom.xml

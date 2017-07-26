@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<org.jenkinsci.plugins.ghprb.GhprbRepository plugin="ghprb@1.39.0">
+  <reponame>Karsun/cicddemo</reponame>
+  <pullRequests class="concurrent-hash-map">
+    <entry>
+      <int>6</int>
+      <org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+        <id>6</id>
+        <updated>2017-07-25 21:11:26.0 UTC</updated>
+        <head>d0ec84677e0e50d352b6deb5438b78dcd08f1e35</head>
+        <base>f25a4e2625de413c1a0d98e4868c8c552709d986</base>
+        <accepted>true</accepted>
+        <lastBuildId>1</lastBuildId>
+      </org.jenkinsci.plugins.ghprb.GhprbPullRequest>
+    </entry>
+  </pullRequests>
+</org.jenkinsci.plugins.ghprb.GhprbRepository>

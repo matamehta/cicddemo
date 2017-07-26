@@ -1,0 +1,134 @@
+commit 5d3dd43754aefdf993e22ce932c0b2cbffc489a6
+tree b82aff1893028569a2015bf0d298df4c6347851e
+parent b3e944a88224dd8c1535eea83808fbf248239e2b
+author Raminder Saluja <saluja.raminder@gmail.com> 2017-07-25 20:44:20 -0400
+committer Raminder Saluja <saluja.raminder@gmail.com> 2017-07-25 20:44:20 -0400
+
+    updated the depends on for albservice
+
+
+
+:100644 100644 994aacca19d531491a442ef65bd7092f533504f5 e4e99fe32f89bf9ead8d9a0f216b2ea3a415ba0b M	resource/aws/cloudFormation/service.json
+commit b3e944a88224dd8c1535eea83808fbf248239e2b
+tree 38c69721cd1ba886f7392101a8e7d9a52f482646
+parent 4277808fe0a42e56795f52d901797740c45d927d
+author Raminder Saluja <saluja.raminder@gmail.com> 2017-07-25 20:08:05 -0400
+committer Raminder Saluja <saluja.raminder@gmail.com> 2017-07-25 20:08:05 -0400
+
+    cleaned up the cloud formation template
+
+
+
+:100644 100644 454413fcf86cf9076bf57fade40c94d164d05f80 994aacca19d531491a442ef65bd7092f533504f5 M	resource/aws/cloudFormation/service.json
+commit 4277808fe0a42e56795f52d901797740c45d927d
+tree 513164691de4a3ffb4f985bb6badcbca4bfeca49
+parent f25a4e2625de413c1a0d98e4868c8c552709d986
+author Raminder Saluja <saluja.raminder@gmail.com> 2017-07-25 18:38:46 -0400
+committer Raminder Saluja <saluja.raminder@gmail.com> 2017-07-25 18:38:46 -0400
+
+    Added the target folder to git ignore
+
+
+
+:100644 100644 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 b83d22266ac8aa2f8df2edef68082c789727841d M	.gitignore
+commit cb2d71b246f91d428457701954862f020f84e22e
+tree aec8424ac5fc31ad16d10b2f16e9f2c43d5788e8
+parent 45d98e0a1a6fbf224398c6b99007274736459bc3
+author nathan.hinkle <nathan.hinkle@karsun-llc.com> 2017-07-25 16:46:37 -0400
+committer nathan.hinkle <nathan.hinkle@karsun-llc.com> 2017-07-25 16:46:37 -0400
+
+    Updates.
+
+
+
+:100644 100644 4f79cede68fe5ab2e8135082b95228ee912d4694 454413fcf86cf9076bf57fade40c94d164d05f80 M	resource/aws/cloudFormation/service.json
+commit f81f502e2db19d158e4e16aac1c468fc46bf3936
+tree 70fb308caf203fceb3229a35d2905f5f7e4b80c4
+parent e997acd09c311f16303c62d619c41e4e96dff77e
+author goleanbot <goleanbot@golean.io> 2017-07-25 20:34:40 +0000
+committer goleanbot <goleanbot@golean.io> 2017-07-25 20:34:40 +0000
+
+    Set new development branch version 1.3.0-SNAPSHOT
+
+
+
+:100644 100644 2234daafc54901d087b1dd0e3826d79d69c34a7d ae58033389b17ef41466d8869483f77277f10116 M	pom.xml
+commit 45d98e0a1a6fbf224398c6b99007274736459bc3
+tree d28e808b85665b8754136a9b1e63a0a27388f903
+parent 954894518fdd4bd42475212c3ad1a702b5c3f74f
+author nathan.hinkle <nathan.hinkle@karsun-llc.com> 2017-07-25 16:21:15 -0400
+committer nathan.hinkle <nathan.hinkle@karsun-llc.com> 2017-07-25 16:21:15 -0400
+
+    Updates.
+
+
+
+:100644 100644 265e3e8c0de59f18c2fb6720c4013a476078d5a5 4f79cede68fe5ab2e8135082b95228ee912d4694 M	resource/aws/cloudFormation/service.json
+commit 954894518fdd4bd42475212c3ad1a702b5c3f74f
+tree fcf852d0760a143663fbcbf809eae2fe2d7bcf62
+parent 5f8ad851e021577e82afbf974a2e2b97fbbfe9c4
+author nathan.hinkle <nathan.hinkle@karsun-llc.com> 2017-07-25 15:34:31 -0400
+committer nathan.hinkle <nathan.hinkle@karsun-llc.com> 2017-07-25 15:34:31 -0400
+
+    Removed task desired count.
+
+
+
+:100644 100644 b76647b26f0adad38a685b2954b9b265b0c57bb4 265e3e8c0de59f18c2fb6720c4013a476078d5a5 M	resource/aws/cloudFormation/service.json
+commit 5f8ad851e021577e82afbf974a2e2b97fbbfe9c4
+tree d74a6064625e83786cab818e773c593ce87513ea
+parent 02441d28b713501bec2b33e9f05090ef8a89248d
+author nathan.hinkle <nathan.hinkle@karsun-llc.com> 2017-07-25 15:31:24 -0400
+committer nathan.hinkle <nathan.hinkle@karsun-llc.com> 2017-07-25 15:31:24 -0400
+
+    Basic outline complete.
+
+
+
+:100644 100644 0290b189e40bafc8def9f38ed6ec66ae869c925e b76647b26f0adad38a685b2954b9b265b0c57bb4 M	resource/aws/cloudFormation/service.json
+commit 02441d28b713501bec2b33e9f05090ef8a89248d
+tree 5885efc55c1629b3e7f0ad619c64854005c1d059
+parent c7bcca84fef4d98472eaabc7c1ec608025ea6c1c
+author nathan.hinkle <nathan.hinkle@karsun-llc.com> 2017-07-25 15:24:05 -0400
+committer nathan.hinkle <nathan.hinkle@karsun-llc.com> 2017-07-25 15:24:05 -0400
+
+    Added autoscaling group, parameters, and updates.
+
+
+
+:100644 100644 e0b0a360393e11f0b7cf4357f065a89abeae96ca 0290b189e40bafc8def9f38ed6ec66ae869c925e M	resource/aws/cloudFormation/service.json
+commit c7bcca84fef4d98472eaabc7c1ec608025ea6c1c
+tree 6dd8fbc448c34f645b28e69f4b1e5f33fabd910c
+parent c95b65735321f18b4698f26498c94bb4c7bd365b
+author nathan.hinkle <nathan.hinkle@karsun-llc.com> 2017-07-25 13:45:30 -0400
+committer nathan.hinkle <nathan.hinkle@karsun-llc.com> 2017-07-25 13:45:30 -0400
+
+    Removed metadata, parameterized version, cleaned up template.
+
+
+
+:100644 100644 00d4c6367c7f00883c62c0fe578075a031f481d9 e0b0a360393e11f0b7cf4357f065a89abeae96ca M	resource/aws/cloudFormation/service.json
+commit c95b65735321f18b4698f26498c94bb4c7bd365b
+tree 98a30de2d9fc27ef9a97f9c467c1bf629c491523
+parent 9ec238c6635fa55de5425d3a3fcc51631f9d8135
+author nathan.hinkle <nathan.hinkle@karsun-llc.com> 2017-07-25 13:17:50 -0400
+committer nathan.hinkle <nathan.hinkle@karsun-llc.com> 2017-07-25 13:17:50 -0400
+
+    Initial service template.
+
+
+
+:100644 100644 94903a967fc2eb25b9cf17a87f078e5b6af6520d a199ed6de6e5a340514ab55910649d92529459ac M	resource/aws/cloudFormation/ecs.json
+:000000 100644 0000000000000000000000000000000000000000 00d4c6367c7f00883c62c0fe578075a031f481d9 A	resource/aws/cloudFormation/service.json
+commit 9ec238c6635fa55de5425d3a3fcc51631f9d8135
+tree 6f92281f5e9590dcd1cd273b1119ce3e5aa67361
+parent 28f7f2f7840a15f0b7aef56d44e90789bf0d409f
+author nathan.hinkle <nathan.hinkle@karsun-llc.com> 2017-07-25 12:54:41 -0400
+committer nathan.hinkle <nathan.hinkle@karsun-llc.com> 2017-07-25 12:54:41 -0400
+
+    Initial commit, aws basic template for ecs.
+
+
+
+:000000 100644 0000000000000000000000000000000000000000 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 A	.gitignore
+:000000 100644 0000000000000000000000000000000000000000 94903a967fc2eb25b9cf17a87f078e5b6af6520d A	resource/aws/cloudFormation/ecs.json

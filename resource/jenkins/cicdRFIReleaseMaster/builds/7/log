@@ -1,0 +1,73 @@
+Started by user [8mha:////4OKGIjEr0qF/rzPvDU1OYNdO2pj2gqRDn2ZyZJOcSz8ZAAAAoR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz1EgZR/dLi1CL9osTczLyU1CK94sSc0qxEABA1KVLKAAAA[0mRaminder Singh Saluja (raminder.saluja)
+Building in workspace /var/lib/jenkins/workspace/cicdRFIReleaseMaster
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Done
+Cloning the remote Git repository
+Cloning repository git@github.com:Karsun/cicddemo.git
+ > git init /var/lib/jenkins/workspace/cicdRFIReleaseMaster # timeout=10
+Fetching upstream changes from git@github.com:Karsun/cicddemo.git
+ > git --version # timeout=10
+ > git fetch --tags --progress git@github.com:Karsun/cicddemo.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url git@github.com:Karsun/cicddemo.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url git@github.com:Karsun/cicddemo.git # timeout=10
+Fetching upstream changes from git@github.com:Karsun/cicddemo.git
+ > git fetch --tags --progress git@github.com:Karsun/cicddemo.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision df0a84d18f2651c2559b43d1c62beb99253f0440 (refs/remotes/origin/master)
+Commit message: "Adding the version number for the docker plugin"
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f df0a84d18f2651c2559b43d1c62beb99253f0440
+ > git rev-list 78a38e820e99817137f2e8b594d3aae9b76ff52f # timeout=10
+[cicdRFIReleaseMaster] $ /bin/bash -ex /tmp/jenkins4502077721472789854.sh
++ set +x
+New development minor version should be 0, minor version is 
+Release branch: 1.0
+Release version 1.0.0
+Release tag: tag-release-1.0.0
+New development: -SNAPSHOT
+New minor version 1
+New release branch 1.0.1-SNAPSHOT
+Switched to a new branch 'release/1.0'
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mBuilding cicddemo 1.0.0-SNAPSHOT[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mversions-maven-plugin:2.2:set[m [1m(default-cli)[m @ [36mcicddemo[0;1m ---[m
+[[1;34mINFO[m] Searching for local aggregator root...
+[[1;34mINFO[m] Local aggregation root: /var/lib/jenkins/workspace/cicdRFIReleaseMaster
+[[1;34mINFO[m] Processing change of com.karsun:cicddemo:1.0.0-SNAPSHOT -> 1.0.0
+[[1;34mINFO[m] Processing com.karsun:cicddemo
+[[1;34mINFO[m]     Updating project com.karsun:cicddemo
+[[1;34mINFO[m]         from version 1.0.0-SNAPSHOT to 1.0.0
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time: 2.081 s
+[[1;34mINFO[m] Finished at: 2017-07-25T19:31:51Z
+[[1;34mINFO[m] Final Memory: 23M/225M
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[m[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mBuilding cicddemo 1.0.0[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mversions-maven-plugin:2.2:commit[m [1m(default-cli)[m @ [36mcicddemo[0;1m ---[m
+[[1;34mINFO[m] Accepting all changes to /var/lib/jenkins/workspace/cicdRFIReleaseMaster/pom.xml
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time: 1.976 s
+[[1;34mINFO[m] Finished at: 2017-07-25T19:31:55Z
+[[1;34mINFO[m] Final Memory: 23M/217M
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[release/1.0 26f29a3] Set release version 1.0.0
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+fatal: tag 'tag-release-1.0.0' already exists
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE

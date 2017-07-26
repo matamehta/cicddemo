@@ -1,0 +1,55 @@
+commit e997acd09c311f16303c62d619c41e4e96dff77e
+tree b8f5d7539fccc961ebf85b5c4c2ed5a90f25e2cf
+parent 7a2de64cd1a8c03798d3b5e39584202699e82e19
+author rssaluja <saluja.raminder@gmail.com> 2017-07-25 16:31:23 -0400
+committer GitHub <noreply@github.com> 2017-07-25 16:31:23 -0400
+
+    Update README.md
+
+
+
+:100644 100644 f6b664927478cbea8571ea0d213b147aad938656 0a8cafb6077ef63f23671044c3c652adbc105e70 M	README.md
+commit 7a2de64cd1a8c03798d3b5e39584202699e82e19
+tree 88dbe7403759ee8ca8c991b7219c8b9c6716ba9e
+parent 447c4dab010d20fdd93e9dbd704ba875ca77f9bd
+author rssaluja <saluja.raminder@gmail.com> 2017-07-25 16:18:00 -0400
+committer GitHub <noreply@github.com> 2017-07-25 16:18:00 -0400
+
+    Update README.md
+
+
+
+:100644 100644 d8026548a974992d19adcf6abd84f9fd1d16c46a f6b664927478cbea8571ea0d213b147aad938656 M	README.md
+commit 447c4dab010d20fdd93e9dbd704ba875ca77f9bd
+tree 05c6da32a7a277de1371528ee5ac9b25c4dd7bc9
+parent 68f58b1e3ca2d1fb938899b4bbb0f40c9d5b93fc
+author rssaluja <saluja.raminder@gmail.com> 2017-07-25 16:11:18 -0400
+committer GitHub <noreply@github.com> 2017-07-25 16:11:18 -0400
+
+    Update README.md
+
+
+
+:100644 100644 a510fe54d2f0d19e42d33607ac385db0ef1091da d8026548a974992d19adcf6abd84f9fd1d16c46a M	README.md
+commit 68f58b1e3ca2d1fb938899b4bbb0f40c9d5b93fc
+tree 9b5374be6817f786726e7811c94b198a95a835bc
+parent f1cb976f30396e925b4ea621d8cf8ffd1501a1ba
+author rssaluja <saluja.raminder@gmail.com> 2017-07-25 16:10:39 -0400
+committer GitHub <noreply@github.com> 2017-07-25 16:10:39 -0400
+
+    Update README.md
+
+
+
+:100644 100644 3c44fab8192bd00d0f5b2a9f19e12b7eea19d8df a510fe54d2f0d19e42d33607ac385db0ef1091da M	README.md
+commit 9b1eae20baaa77a9209c6a70a92aee356cb1d3cf
+tree c4676fbaa2cd55473cd1c616fc2a4d9c1b0239e3
+parent 145a9f752f53cbad6e81a8ea050ff060329dd5f0
+author goleanbot <goleanbot@golean.io> 2017-07-25 19:59:54 +0000
+committer goleanbot <goleanbot@golean.io> 2017-07-25 19:59:54 +0000
+
+    Set new development branch version 1.2.0-SNAPSHOT
+
+
+
+:100644 100644 9b3835551898429eda9ee679c3818ba0f483fcb2 2234daafc54901d087b1dd0e3826d79d69c34a7d M	pom.xml

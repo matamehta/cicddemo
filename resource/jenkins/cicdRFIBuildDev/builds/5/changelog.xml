@@ -1,0 +1,56 @@
+commit 621f887aae897864b88804091aded53e69fe0e4a
+tree 287372db1e93cc74de0013a0c2b4561b4e78a9c4
+parent 28f7f2f7840a15f0b7aef56d44e90789bf0d409f
+author Raminder Saluja <saluja.raminder@gmail.com> 2017-07-25 14:43:02 -0400
+committer Raminder Saluja <saluja.raminder@gmail.com> 2017-07-25 14:43:02 -0400
+
+    passed on the jar file name from pom to the docker file.
+
+
+
+:100644 100644 d170d187eb187d348868a4b322c7612ad585c868 b58d90916b0da62f2b39e3f2bcef1819eb613162 M	Dockerfile
+:100644 100644 68a029f50f6d29396ceab911d4ea7c80db6513b4 7ab7820501d10c5ab4ed678c53fd0e54f907fab8 M	pom.xml
+commit caa550d301a32933e414e51bebf587c5978dbe4a
+tree 95b4093e48bf495e2cda9a39c5b7381110628067
+parent 7fc1213dcefae2991791aec14df0df35f050743e
+author rssaluja <saluja.raminder@gmail.com> 2017-07-25 13:59:46 -0400
+committer GitHub <noreply@github.com> 2017-07-25 13:59:46 -0400
+
+    Update README.md
+
+
+
+:100644 100644 54373c0cebfdec176e0ea600d0850f40011292b7 3c44fab8192bd00d0f5b2a9f19e12b7eea19d8df M	README.md
+commit 7fc1213dcefae2991791aec14df0df35f050743e
+tree 13d17dd95f50a8ee3bfe6ee554fc57cbaf641441
+parent ef39d1cee6210596c7eab042444dcacb77955298
+author rssaluja <saluja.raminder@gmail.com> 2017-07-25 13:58:31 -0400
+committer GitHub <noreply@github.com> 2017-07-25 13:58:31 -0400
+
+    Update README.md
+
+
+
+:100644 100644 ec54863c9f16c421191148f78815eb6a7b4513b8 54373c0cebfdec176e0ea600d0850f40011292b7 M	README.md
+commit ef39d1cee6210596c7eab042444dcacb77955298
+tree 71b05e0f11bfa7cb1db862b7f2be8efdf6a6dac0
+parent 35097c4efd497288d35be2fef800b85793358846
+author rssaluja <saluja.raminder@gmail.com> 2017-07-25 13:57:37 -0400
+committer GitHub <noreply@github.com> 2017-07-25 13:57:37 -0400
+
+    Update README.md
+
+
+
+:100644 100644 6b0fee51f42ce4fb31da8821c325c7e2a5801045 ec54863c9f16c421191148f78815eb6a7b4513b8 M	README.md
+commit 35097c4efd497288d35be2fef800b85793358846
+tree e755248d36e149b8c6c7e520bdaa87f9ff89b202
+parent 28f7f2f7840a15f0b7aef56d44e90789bf0d409f
+author rssaluja <saluja.raminder@gmail.com> 2017-07-25 13:57:05 -0400
+committer GitHub <noreply@github.com> 2017-07-25 13:57:05 -0400
+
+    Update README.md
+
+
+
+:100644 100644 0e416157ac69951d2b449dd0518b2fb1d4dc055d 6b0fee51f42ce4fb31da8821c325c7e2a5801045 M	README.md

@@ -1,0 +1,22 @@
+commit 78a38e820e99817137f2e8b594d3aae9b76ff52f
+tree 33cf96e18187d2fcc4237ed76061f45662fe8a78
+parent ecd4344f69c41e04effa4e4c3b9def6daa7534b1
+author Raminder Saluja <saluja.raminder@gmail.com> 2017-07-25 15:23:04 -0400
+committer Raminder Saluja <saluja.raminder@gmail.com> 2017-07-25 15:23:04 -0400
+
+    added the distribution again to ensure deployment
+
+
+
+:100644 100644 0b8c427b168c15fa29ca35e27e4984f610437af1 64a5ac2fc17001fb8e789f194c5152e35270f0fe M	pom.xml
+commit ecd4344f69c41e04effa4e4c3b9def6daa7534b1
+tree 5e9010ceaecae7342c13a4ae1c515b697a6d9cce
+parent 9ea91a37af7a3dd0c4f1433224a7744863803fce
+author Raminder Saluja <saluja.raminder@gmail.com> 2017-07-25 15:19:57 -0400
+committer Raminder Saluja <saluja.raminder@gmail.com> 2017-07-25 15:19:57 -0400
+
+    updated the Versioning in POM
+
+
+
+:100644 100644 77b8f70cc4212de4064c6f18755d6f8f4a8f74db 0b8c427b168c15fa29ca35e27e4984f610437af1 M	pom.xml

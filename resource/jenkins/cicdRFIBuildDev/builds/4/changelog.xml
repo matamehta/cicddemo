@@ -1,0 +1,24 @@
+commit 28f7f2f7840a15f0b7aef56d44e90789bf0d409f
+tree 8f3f31370b28e454bf3e77665f04c7c79b51726d
+parent 9b8bac6ce0f26338bdcccb74e65371c72d0b1cd0
+author Raminder Saluja <saluja.raminder@gmail.com> 2017-07-25 10:37:05 -0400
+committer Raminder Saluja <saluja.raminder@gmail.com> 2017-07-25 10:37:05 -0400
+
+    Fixed the run.sh file and modified the docker image file to copy correct
+    jar file to the docker image
+
+
+
+:100644 100644 5617c3fd29d9127096bd10d9a2a72d095e9d5100 d170d187eb187d348868a4b322c7612ad585c868 M	Dockerfile
+:100644 100644 c2155f59ea1c4c6aefb562cbcdbe02759ab0733f 18f80517120a874e1acb08163fd2aae743aabffd M	run.sh
+commit 9b8bac6ce0f26338bdcccb74e65371c72d0b1cd0
+tree 6d40f38355022b1ec737c622c691a347d6a85a1d
+parent 1745113a6e99e31c6eefa56c5b92ebf6191e47ce
+author Raminder Saluja <saluja.raminder@gmail.com> 2017-07-25 10:22:39 -0400
+committer Raminder Saluja <saluja.raminder@gmail.com> 2017-07-25 10:22:39 -0400
+
+    removed the repository section
+
+
+
+:100644 100644 d180282626b1e3b9e3af0d8a00efa22ee41214e2 68a029f50f6d29396ceab911d4ea7c80db6513b4 M	pom.xml

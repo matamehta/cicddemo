@@ -1,0 +1,11 @@
+commit df0a84d18f2651c2559b43d1c62beb99253f0440
+tree 7aeb3e6a5d8437cd47a5e4c32053a4554de838b0
+parent 78a38e820e99817137f2e8b594d3aae9b76ff52f
+author Raminder Saluja <saluja.raminder@gmail.com> 2017-07-25 15:30:54 -0400
+committer Raminder Saluja <saluja.raminder@gmail.com> 2017-07-25 15:30:54 -0400
+
+    Adding the version number for the docker plugin
+
+
+
+:100644 100644 64a5ac2fc17001fb8e789f194c5152e35270f0fe 933164276d6358f4cf16762c5f056d4a21bcb741 M	pom.xml

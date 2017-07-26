@@ -1,0 +1,11 @@
+commit b3e944a88224dd8c1535eea83808fbf248239e2b
+tree 38c69721cd1ba886f7392101a8e7d9a52f482646
+parent 4277808fe0a42e56795f52d901797740c45d927d
+author Raminder Saluja <saluja.raminder@gmail.com> 2017-07-25 20:08:05 -0400
+committer Raminder Saluja <saluja.raminder@gmail.com> 2017-07-25 20:08:05 -0400
+
+    cleaned up the cloud formation template
+
+
+
+:100644 100644 454413fcf86cf9076bf57fade40c94d164d05f80 994aacca19d531491a442ef65bd7092f533504f5 M	resource/aws/cloudFormation/service.json

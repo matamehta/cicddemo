@@ -1,0 +1,8 @@
+Started on Jul 26, 2017 2:21:00 AM
+Using strategy: Default
+[poll] Last Built Revision: Revision 5d3dd43754aefdf993e22ce932c0b2cbffc489a6 (origin/master)
+ > git ls-remote -h https://github.com/Karsun/cicddemo # timeout=10
+Found 9 remote heads on https://github.com/Karsun/cicddemo
+[poll] Latest remote head revision on refs/heads/master is: e45d5652d4edcad69dc197a52d3a7075c625074e
+Done. Took 0.21 sec
+Changes found

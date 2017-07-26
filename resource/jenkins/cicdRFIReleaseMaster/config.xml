@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
+      <autoRebuild>false</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>NewVersion</name>
+          <description></description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.3.2">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>git@github.com:Karsun/cicddemo.git</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions>
+      <hudson.plugins.git.extensions.impl.UserIdentity>
+        <name>goleanbot</name>
+        <email>goleanbot@golean.io</email>
+      </hudson.plugins.git.extensions.impl.UserIdentity>
+    </extensions>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>#!/bin/bash -ex
+set +x;
+
+while IFS=&apos;.&apos; read -ra ADDR; do
+for i in &quot;${ADDR[@]}&quot;; do
+minorVersion=$i
+done
+done &lt;&lt;&lt; &quot;$Version&quot;
+if [ &quot;${minorVersion}&quot; = &quot;0&quot; ]; then
+echo $minorVersion
+else
+echo &quot;New development minor version should be 0, minor version is $minorVersion&quot;
+fi
+CURRENTVERSION=$(xmlstarlet sel -N x=&quot;http://maven.apache.org/POM/4.0.0&quot;  -t -v &apos;//x:project/x:version/text()&apos; pom.xml)
+releaseBranch=&quot;${CURRENTVERSION%.*}&quot;
+releaseVersion=${CURRENTVERSION%-*}
+currentReleaseTag=&quot;tag-release-${CURRENTVERSION%-*}&quot;
+newMinorVersion=$(($minorVersion + 1))
+newReleaseBranchVersion=&quot;${releaseBranch}.$newMinorVersion-SNAPSHOT&quot;
+newDevelopmentVersion=&quot;${NewVersion}-SNAPSHOT&quot;
+
+echo &quot;Release branch: $releaseBranch&quot;
+echo &quot;Release version $releaseVersion&quot;
+echo &quot;Release tag: $currentReleaseTag&quot;
+echo &quot;New development: $newDevelopmentVersion&quot;
+
+echo &quot;New minor version $newMinorVersion&quot;
+echo &quot;New release branch $newReleaseBranchVersion&quot;
+
+
+#------------setting release branch version ----------------
+git checkout -b release/$releaseBranch
+#set the main pom version
+mvn versions:set -DnewVersion=${releaseVersion}
+mvn versions:commit
+git commit -a -m &quot;Set release version ${releaseVersion}&quot;
+git tag -a  -m &quot;Release tag $currentReleaseTag&quot; $currentReleaseTag
+
+
+mvn clean deploy -Pdefault,release
+mvn clean
+
+#------------setting new release branch version ----------------
+#set the main pom version
+mvn versions:set -DnewVersion=$newReleaseBranchVersion
+#set the dependency pom version
+mvn versions:commit
+git commit -a -m &quot;Set new release branch version $newReleaseBranchVersion&quot;
+
+
+#------------setting new development version ----------------
+git checkout remotes/origin/master
+git checkout -b temp/$newDevelopmentVersion
+#set the main pom version
+mvn versions:set -DnewVersion=$newDevelopmentVersion
+#set the dependency pom version
+mvn versions:commit
+git commit -a -m &quot;Set new development branch version $newDevelopmentVersion&quot;
+
+
+
+
+git push --all -u origin
+git push --tags origin
+
+
+aws cloudformation update-stack --stack-name XXXXXXXXXXX --region us-east-1 --use-previous-template --capabilities CAPABILITY_IAM --parameters ParameterKey=EcsAlb,UsePreviousValue=true    ParameterKey=KeyName,UsePreviousValue=true    ParameterKey=EcsSecurityGroup,UsePreviousValue=true    ParameterKey=TaskDefinitionName,UsePreviousValue=true    ParameterKey=CicdVersion,ParameterValue=${releaseBranch} ParameterKey=VpcId,UsePreviousValue=true    ParameterKey=SubnetId,UsePreviousValue=true    ParameterKey=ECSClusterName,UsePreviousValue=true    ParameterKey=InstanceType,UsePreviousValue=true 
+
+</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>aws cloudformation update-stack --stack-name cicd14 --region us-east-1 --use-previous-template --capabilities CAPABILITY_IAM --parameters ParameterKey=EcsAlb,UsePreviousValue=true    ParameterKey=KeyName,UsePreviousValue=true    ParameterKey=EcsSecurityGroup,UsePreviousValue=true    ParameterKey=TaskDefinitionName,UsePreviousValue=true    ParameterKey=CicdVersion,ParameterValue=1.1.0    ParameterKey=VpcId,UsePreviousValue=true    ParameterKey=SubnetId,UsePreviousValue=true    ParameterKey=ECSClusterName,UsePreviousValue=true    ParameterKey=InstanceType,UsePreviousValue=true </command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.33">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+      <externalDelete></externalDelete>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+  </buildWrappers>
+</project>

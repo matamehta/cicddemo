@@ -1,0 +1,79 @@
+Started by user [8mha:////4OKGIjEr0qF/rzPvDU1OYNdO2pj2gqRDn2ZyZJOcSz8ZAAAAoR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz1EgZR/dLi1CL9osTczLyU1CK94sSc0qxEABA1KVLKAAAA[0mRaminder Singh Saluja (raminder.saluja)
+Building in workspace /var/lib/jenkins/workspace/cicdRFIReleaseMaster
+[WS-CLEANUP] Deleting project workspace...
+Cloning the remote Git repository
+Cloning repository git@github.com:Karsun/cicddemo.git
+ > git init /var/lib/jenkins/workspace/cicdRFIReleaseMaster # timeout=10
+Fetching upstream changes from git@github.com:Karsun/cicddemo.git
+ > git --version # timeout=10
+ > git fetch --tags --progress git@github.com:Karsun/cicddemo.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url git@github.com:Karsun/cicddemo.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url git@github.com:Karsun/cicddemo.git # timeout=10
+Fetching upstream changes from git@github.com:Karsun/cicddemo.git
+ > git fetch --tags --progress git@github.com:Karsun/cicddemo.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision 9ea91a37af7a3dd0c4f1433224a7744863803fce (refs/remotes/origin/master)
+Commit message: "removed the disrtribution option "
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 9ea91a37af7a3dd0c4f1433224a7744863803fce
+First time build. Skipping changelog.
+[cicdRFIReleaseMaster] $ /bin/bash -ex /tmp/jenkins4878512715601532041.sh
++ set +x
+New development minor version should be 0, minor version is 
+Release branch: 1
+Release version 1.0
+Release tag: tag-release-1.0
+New development: -SNAPSHOT
+New minor version 1
+New release branch 1.1-SNAPSHOT
+Switched to a new branch 'release/1'
+[[1;34mINFO[m] Scanning for projects...
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] Some problems were encountered while building the effective model for com.karsun:cicddemo:jar:1.0
+[[1;33mWARNING[m] 'build.plugins.plugin.version' for com.spotify:dockerfile-maven-plugin is missing. @ line 60, column 12
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] It is highly recommended to fix these problems because they threaten the stability of your build.
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] For this reason, future Maven versions might no longer support building such malformed projects.
+[[1;33mWARNING[m] 
+Downloading: https://artifactory.golean.io/artifactory/libs-release/org/apache/maven/plugins/maven-invoker-plugin/1.10/maven-invoker-plugin-1.10.pom
+Progress (1): 4.1/11 kBProgress (1): 7.6/11 kBProgress (1): 11 kB                       Downloaded: https://artifactory.golean.io/artifactory/libs-release/org/apache/maven/plugins/maven-invoker-plugin/1.10/maven-invoker-plugin-1.10.pom (11 kB at 12 kB/s)
+Downloading: https://artifactory.golean.io/artifactory/libs-release/org/apache/maven/plugins/maven-invoker-plugin/1.10/maven-invoker-plugin-1.10.jar
+Progress (1): 4.1/105 kBProgress (1): 7.6/105 kBProgress (1): 12/105 kB Progress (1): 13/105 kBProgress (1): 17/105 kBProgress (1): 21/105 kBProgress (1): 25/105 kBProgress (1): 29/105 kBProgress (1): 33/105 kBProgress (1): 37/105 kBProgress (1): 41/105 kBProgress (1): 41/105 kBProgress (1): 46/105 kBProgress (1): 50/105 kBProgress (1): 54/105 kBProgress (1): 58/105 kBProgress (1): 62/105 kBProgress (1): 66/105 kBProgress (1): 70/105 kBProgress (1): 72/105 kBProgress (1): 76/105 kBProgress (1): 80/105 kBProgress (1): 84/105 kBProgress (1): 88/105 kBProgress (1): 92/105 kBProgress (1): 96/105 kBProgress (1): 101/105 kBProgress (1): 104/105 kBProgress (1): 105 kB                        Downloaded: https://artifactory.golean.io/artifactory/libs-release/org/apache/maven/plugins/maven-invoker-plugin/1.10/maven-invoker-plugin-1.10.jar (105 kB at 404 kB/s)
+Downloading: https://artifactory.golean.io/artifactory/libs-release/org/apache/maven/plugins/maven-source-plugin/2.4/maven-source-plugin-2.4.pom
+Progress (1): 4.1/6.6 kBProgress (1): 6.6 kB                        Downloaded: https://artifactory.golean.io/artifactory/libs-release/org/apache/maven/plugins/maven-source-plugin/2.4/maven-source-plugin-2.4.pom (6.6 kB at 41 kB/s)
+Downloading: https://artifactory.golean.io/artifactory/libs-release/org/apache/maven/plugins/maven-source-plugin/2.4/maven-source-plugin-2.4.jar
+Progress (1): 4.1/31 kBProgress (1): 7.6/31 kBProgress (1): 12/31 kB Progress (1): 16/31 kBProgress (1): 20/31 kBProgress (1): 24/31 kBProgress (1): 28/31 kBProgress (1): 30/31 kBProgress (1): 31 kB                      Downloaded: https://artifactory.golean.io/artifactory/libs-release/org/apache/maven/plugins/maven-source-plugin/2.4/maven-source-plugin-2.4.jar (31 kB at 201 kB/s)
+Downloading: https://artifactory.golean.io/artifactory/libs-release/org/apache/maven/plugins/maven-war-plugin/2.6/maven-war-plugin-2.6.pom
+Progress (1): 4.1/8.2 kBProgress (1): 7.6/8.2 kBProgress (1): 8.2 kB                        Downloaded: https://artifactory.golean.io/artifactory/libs-release/org/apache/maven/plugins/maven-war-plugin/2.6/maven-war-plugin-2.6.pom (8.2 kB at 52 kB/s)
+Downloading: https://artifactory.golean.io/artifactory/libs-release/org/apache/maven/plugins/maven-war-plugin/2.6/maven-war-plugin-2.6.jar
+Progress (1): 4.1/88 kBProgress (1): 7.6/88 kBProgress (1): 12/88 kB Progress (1): 16/88 kBProgress (1): 20/88 kBProgress (1): 24/88 kBProgress (1): 28/88 kBProgress (1): 32/88 kBProgress (1): 36/88 kBProgress (1): 40/88 kBProgress (1): 44/88 kBProgress (1): 48/88 kBProgress (1): 52/88 kBProgress (1): 56/88 kBProgress (1): 60/88 kBProgress (1): 65/88 kBProgress (1): 68/88 kBProgress (1): 72/88 kBProgress (1): 76/88 kBProgress (1): 80/88 kBProgress (1): 84/88 kBProgress (1): 88 kB                      Downloaded: https://artifactory.golean.io/artifactory/libs-release/org/apache/maven/plugins/maven-war-plugin/2.6/maven-war-plugin-2.6.jar (88 kB at 510 kB/s)
+Downloading: https://artifactory.golean.io/artifactory/libs-release/org/codehaus/mojo/versions-maven-plugin/2.2/versions-maven-plugin-2.2.pom
+Progress (1): 4.1/16 kBProgress (1): 7.6/16 kBProgress (1): 12/16 kB Progress (1): 16/16 kBProgress (1): 16 kB                      Downloaded: https://artifactory.golean.io/artifactory/libs-release/org/codehaus/mojo/versions-maven-plugin/2.2/versions-maven-plugin-2.2.pom (16 kB at 99 kB/s)
+Downloading: https://artifactory.golean.io/artifactory/libs-release/org/codehaus/mojo/mojo-parent/34/mojo-parent-34.pom
+Progress (1): 4.1/25 kBProgress (1): 7.6/25 kBProgress (1): 12/25 kB Progress (1): 16/25 kBProgress (1): 20/25 kBProgress (1): 24/25 kBProgress (1): 25 kB                      Downloaded: https://artifactory.golean.io/artifactory/libs-release/org/codehaus/mojo/mojo-parent/34/mojo-parent-34.pom (25 kB at 142 kB/s)
+Downloading: https://artifactory.golean.io/artifactory/libs-release/org/codehaus/codehaus-parent/4/codehaus-parent-4.pom
+Progress (1): 4.1/4.7 kBProgress (1): 4.7 kB                        Downloaded: https://artifactory.golean.io/artifactory/libs-release/org/codehaus/codehaus-parent/4/codehaus-parent-4.pom (4.7 kB at 30 kB/s)
+Downloading: https://artifactory.golean.io/artifactory/libs-release/org/codehaus/mojo/versions-maven-plugin/2.2/versions-maven-plugin-2.2.jar
+Progress (1): 4.1/256 kBProgress (1): 8.2/256 kBProgress (1): 12/256 kB Progress (1): 13/256 kBProgress (1): 17/256 kBProgress (1): 21/256 kBProgress (1): 25/256 kBProgress (1): 29/256 kBProgress (1): 33/256 kBProgress (1): 37/256 kBProgress (1): 41/256 kBProgress (1): 41/256 kBProgress (1): 46/256 kBProgress (1): 50/256 kBProgress (1): 54/256 kBProgress (1): 58/256 kBProgress (1): 62/256 kBProgress (1): 66/256 kBProgress (1): 70/256 kBProgress (1): 74/256 kBProgress (1): 76/256 kBProgress (1): 80/256 kBProgress (1): 84/256 kBProgress (1): 89/256 kBProgress (1): 93/256 kBProgress (1): 97/256 kBProgress (1): 101/256 kBProgress (1): 105/256 kBProgress (1): 109/256 kBProgress (1): 112/256 kBProgress (1): 117/256 kBProgress (1): 121/256 kBProgress (1): 125/256 kBProgress (1): 129/256 kBProgress (1): 133/256 kBProgress (1): 137/256 kBProgress (1): 141/256 kBProgress (1): 145/256 kBProgress (1): 149/256 kBProgress (1): 150/256 kBProgress (1): 154/256 kBProgress (1): 158/256 kBProgress (1): 162/256 kBProgress (1): 166/256 kBProgress (1): 171/256 kBProgress (1): 175/256 kBProgress (1): 179/256 kBProgress (1): 183/256 kBProgress (1): 187/256 kBProgress (1): 189/256 kBProgress (1): 193/256 kBProgress (1): 197/256 kBProgress (1): 201/256 kBProgress (1): 206/256 kBProgress (1): 210/256 kBProgress (1): 214/256 kBProgress (1): 218/256 kBProgress (1): 222/256 kBProgress (1): 226/256 kBProgress (1): 230/256 kBProgress (1): 231/256 kBProgress (1): 235/256 kBProgress (1): 239/256 kBProgress (1): 243/256 kBProgress (1): 248/256 kBProgress (1): 252/256 kBProgress (1): 256/256 kBProgress (1): 256 kB                        Downloaded: https://artifactory.golean.io/artifactory/libs-release/org/codehaus/mojo/versions-maven-plugin/2.2/versions-maven-plugin-2.2.jar (256 kB at 394 kB/s)
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mBuilding cicddemo 1.0[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mversions-maven-plugin:2.2:set[m [1m(default-cli)[m @ [36mcicddemo[0;1m ---[m
+[[1;34mINFO[m] Searching for local aggregator root...
+[[1;34mINFO[m] Local aggregation root: /var/lib/jenkins/workspace/cicdRFIReleaseMaster
+[[1;34mINFO[m] Processing change of com.karsun:cicddemo:1.0 -> 1.0
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time: 5.250 s
+[[1;34mINFO[m] Finished at: 2017-07-25T19:17:12Z
+[[1;34mINFO[m] Final Memory: 24M/176M
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[m/tmp/jenkins4878512715601532041.sh: line 36: cd: golean-engine-dependencies: No such file or directory
+Build step 'Execute shell' marked build as failure
+Finished: FAILURE
