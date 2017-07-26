@@ -50,6 +50,9 @@ logged for a period of 12 hours. This may work fine for temporary testing, howev
 necessary. You can encrypt the password using maven configuration tools
 7. Run the cloud formation script in the AWS environment and create the initial setup. The cloud formation script assumes that you have the infrastructure correctly setup
 8. Once the initial cloudformation scripts are run, the release jenkins job will update the environment with new releases.
+9. You will also need to update the OUATH keys and URL for sonarqube and github in the "cicdRFIPullRequest" jenkins job.
+10. You will also need to update the OUATH keys and URL for sonarqube in the "cicdRFIBuildDev" jenkins job.
+
 
 
 
