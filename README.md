@@ -14,7 +14,7 @@ Jenkins task gets executed whenever there is a change in the github repository. 
 script that forces a deployment of the docker image on ECS.
 7. The cloud formation template allows you to create an ECS service that will then be updated with newer versions of the software using the release build
 
-# Changes to be done to be able to deploy this app in your AWS environment
+# How to deploy this app in your AWS environment
 1. Create an EC2 instance server that has the jenkins server installed and having a ROLE that allows ecs cli and ec2 cli commands
 2. Import the jenkins job from the resources/jenkins folder
 3. Replace the following properties in pom.xml with the correct repository information from dockerhub
