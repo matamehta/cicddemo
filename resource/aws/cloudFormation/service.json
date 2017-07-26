@@ -14,35 +14,15 @@
           {
             "Name": "applicationContainer",
             "Image": {
-              "Fn::Sub": "${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/golean/${CicdVersion}"
+              "Fn::Sub": "ramindersaluja/cicddemo:${CicdVersion}"
             },
             "Cpu": "100",
             "PortMappings": [
               {
-                "ContainerPort": 8087,
+                "ContainerPort": 8080,
                 "HostPort": 0
               }
             ],
-            "MemoryReservation": "1024",
-            "Essential": "true",
-            "Links": [
-              "dbContainer:db"
-            ],
-            "Environment": [
-              {
-                "Name": "X_PATH",
-                "Value": {
-                  "Fn::Sub": "/${ApplicationContextPath}"
-                }
-              }
-            ]
-          },
-          {
-            "Name": "dbContainer",
-            "Image": {
-              "Fn::Sub": "${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/golean/${CicdVersion}"
-            },
-            "Cpu": "100",
             "MemoryReservation": "1024",
             "Essential": "true"
           }
@@ -59,7 +39,7 @@
         "HealthyThresholdCount": 2,
         "UnhealthyThresholdCount": 10,
         "HealthCheckPath": {
-          "Fn::Sub": "/${ApplicationContextPath}/healthcheck"
+          "Fn::Sub": "/"
         },
         "Matcher": {
           "HttpCode": 200
@@ -96,34 +76,9 @@
         "Protocol":"HTTP"
       }
     },
-    "AppListenerRule": {
-      "Type": "AWS::ElasticLoadBalancingV2::ListenerRule",
-      "Properties": {
-        "Actions": [
-          {
-            "TargetGroupArn": {
-              "Ref": "EnvironmentTargetGroup"
-            },
-            "Type": "forward"
-          }
-        ],
-        "Conditions": [
-          {
-            "Field": "path-pattern",
-            "Values": [
-              {
-                "Fn::Sub": "/${ApplicationContextPath}/*"
-              }
-            ]
-          }
-        ],
-        "ListenerArn":{
-          "Ref":"AlbListener"
-        }
-      }
-    },
     "ApplicationService": {
       "Type": "AWS::ECS::Service",
+      "DependsOn":"ECSCluster",
       "Properties": {
         "Cluster": {
           "Ref": "ECSClusterName"
@@ -138,14 +93,13 @@
         "LoadBalancers": [
           {
             "ContainerName": "applicationContainer",
-            "ContainerPort": 8087,
+            "ContainerPort": 8080,
             "TargetGroupArn": {
               "Ref": "EnvironmentTargetGroup"
             }
           }
         ]
-      },
-      "DependsOn": "AppListenerRule"
+      }
     },
     "ECSAutoScalingGroup": {
       "Type": "AWS::AutoScaling::AutoScalingGroup",
@@ -328,8 +282,9 @@
   },
   "Parameters": {
     "EcsAlb": {
-      "Description": "ECS ELB",
-      "Type": "String"
+      "Description": "ECS ELB ARN",
+      "Type": "String",
+      "Default":"arn:aws:elasticloadbalancing:us-east-1:213346265274:loadbalancer/app/cicddemo2/fe783825fd7777d3"
     },
     "KeyName": {
       "Type": "AWS::EC2::KeyPair::KeyName",
@@ -338,19 +293,21 @@
     "EcsSecurityGroup": {
       "Description": "ECS Security Group",
       "Type": "String",
-      "Default": "sg-838ab8f2"
+      "Default": "sg-016f487a"
     },
     "TaskDefinitionName": {
       "Description": "Task definition name to identify",
       "Type": "String",
       "MinLength": "1",
       "MaxLength": "25",
-      "AllowedPattern": "[-_ a-zA-Z0-9]*"
+      "AllowedPattern": "[-_ a-zA-Z0-9]*",
+      "Default":"CICDTaskDef"
+      
     },
     "CicdVersion": {
       "Description": "Cicd Ap Version",
       "Type": "String",
-      "Default": "ccid-app:1.0"
+      "Default": "1.0"
     },
     "VpcId": {
       "Description": "Target group name",
@@ -361,18 +318,12 @@
       "Type": "List<AWS::EC2::Subnet::Id>",
       "Description": "Select subnets in your VPC"
     },
-    "ApplicationContextPath": {
-      "Description": "Application's Context path",
-      "Type": "String",
-      "MinLength": "1",
-      "MaxLength": "1024",
-      "AllowedPattern": "[-_ a-zA-Z0-9]*"
-    },
     "ECSClusterName": {
       "Description": "Name of the ECS cluster to deploy",
       "Type": "String",
       "MinLength": "1",
-      "MaxLength": "50"
+      "MaxLength": "50",
+      "Default":"CICDECSCluster"
     },
     "InstanceType": {
       "Description": "EC2 instance type",
