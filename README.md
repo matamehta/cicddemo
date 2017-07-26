@@ -5,13 +5,14 @@ The CI CD demo project provides a springboot sample Java Application. The CI & C
 Jenkins task gets executed whenever there is a change in the github repository. Once the compilation and execution of tests are successful, the Jenkins job initiates the SonarQube check to ensure no high priority issues are introduced in this branch. The github also ensures that push requests are peer-reviewed before the final check-in is complete.
 
 # How does the project configurations work ?
-1. There are 3 Jenkins job inside the resources/jenkins folder. 
+1. There are 3 Jenkins job inside the resources/jenkins folder. Job "cicdRFIBuildDev" checks for new updates and compiles the code along with running test cases and ensuring that the build is successful. Job "cicdRFIPullRequest" is a hook job that gets executed whenever a pull request is added on the github project. This job runs sonarqube on the branch to ensure that no high priority issues are added in the code. Job "cicdRFIReleaseMaster" tags the build in github, pushes the updated cloud formation script to AWS to kick of an automated deployment of the new version of the software. The AWS cloud template will need to be edited in the Job to ensure proper update of cloud formation template. The cloud formation template is under resources\aws\cloudFormation folder and all jenkins jobs are under resources\jenkins folder.
 2. The github webhook calls the jenkins job that initiates a pull request process initiation 
 3. The jenkins job runs a SonarQube code quality check to ensure that the new code commited does not have any high priority issues
 4. A reviewer needs to review the code to ensure pull request can me successfully merged.
 5. The system will NOT allow merging if there are any high priority issues in SonarQube
 6.The Release jenkins job tags the release in github, increments the version number of the package and also updates the cloud formation 
 script that forces a deployment of the docker image on ECS.
+7. The cloud formation template allows you to create an ECS service that will then be updated with newer versions of the software using the release build
 
 # Changes to be done to be able to deploy this app in your AWS environment
 1. Create an EC2 instance server that has the jenkins server installed and having a ROLE that allows ecs cli and ec2 cli commands
