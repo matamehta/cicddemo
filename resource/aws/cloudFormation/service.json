@@ -78,10 +78,10 @@
     },
     "ApplicationService": {
       "Type": "AWS::ECS::Service",
-      "DependsOn":"ECSCluster",
+      "DependsOn":"AlbListener",
       "Properties": {
         "Cluster": {
-          "Ref": "ECSClusterName"
+          "Ref": "ECSCluster"
         },
         "Role": {
           "Ref": "ECSServiceRole"
